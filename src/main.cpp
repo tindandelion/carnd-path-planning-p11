@@ -145,13 +145,11 @@ void LoadPath(Path &path) {
 
 int main() {
   uWS::Hub h;
-  Path my_path;
-  LoadPath(my_path);
 
+  Path my_path;
   BehaviorState behavior_state(1, 0.0, 0.0);
 
-  double ref_vel = 0;
-
+  LoadPath(my_path);
   h.onMessage([&my_path, &behavior_state](uWS::WebSocket<uWS::SERVER> ws,
                                           char *data, size_t length,
                                           uWS::OpCode opCode) {
